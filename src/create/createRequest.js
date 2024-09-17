@@ -1,4 +1,4 @@
-function createRequest(formState) {
+function createRequest(formState, type) {
     
     var url = 'https://example.com/api'; // Замените URL
 
