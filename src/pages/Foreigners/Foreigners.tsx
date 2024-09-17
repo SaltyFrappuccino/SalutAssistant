@@ -1,5 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
+import uuid4 from "uuid4";
+import axios from 'axios';
 import {updateFormField, resetForm, createRequestSuccess} from '../../redux/action/formActions';
 import HintsBlock from "../../components/HintBlock/HintBlock";
 import '../VerifyPages/VerifyRequest.scss';
@@ -19,6 +21,7 @@ import Notification from "../Notification/Notification";
 import '../SettlementOfProblemDebt/SettlementOfProblemDebt.scss'
 import {log} from "util";
 import NorificationAlert from "../Notification/NorificationAlert";
+import {createAssistant} from "@sberdevices/assistant-client";
 
 interface EstateObject {
     objectType: string;
@@ -60,7 +63,7 @@ interface BusinessProcess {
 
 interface DocumentInfo {
     otrId: string;
-    fileName: string;
+    fileName: string | null;
 }
 
 interface FormState {
@@ -71,9 +74,15 @@ interface FormState {
     documentsInfo: DocumentInfo[];
 }
 
+const initializeAssistant = (getState: any) => {
+    return createAssistant({
+        getState,
+    });
+};
+
 const Foreigners: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-
+    const assistantRef = useRef<ReturnType<typeof createAssistant>>();
     const [formState, setFormState] = useState({
         taskInitiator: {
             externalId: "",
@@ -186,12 +195,72 @@ const Foreigners: React.FC = () => {
         const newFileList = [...fileList];
         newFileList.splice(index, 1);
         setFileList(newFileList);
+
+        // Удаляем файл из formState.documentsInfo по индексу
+        const updatedDocumentsInfo = [...formState.documentsInfo];
+        updatedDocumentsInfo.splice(index, 1);
+        setFormState({ ...formState, documentsInfo: updatedDocumentsInfo });
     };
 
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const generateRandomFileName = (extension: string) => {
+        const randomString = Math.random().toString(36).substring(2, 15);
+        return `${randomString}.${extension}`;
+    };
+    const isNonLatin = (str: string) => /[^\u0000-\u007F]+/.test(str);
+
+
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
             const filesArray = Array.from(event.target.files);
-            setFileList([...fileList, ...filesArray]);
+
+            for (const file of filesArray) {
+                try {
+                    const extension = file.name.split('.').pop() || 'file';
+                    let fileName = file.name;
+                    if (isNonLatin(fileName)) {
+                        fileName = generateRandomFileName(extension);
+                    }
+                    const otrResponse = await axios.post('/api/v2/FileDialog/otr', {
+                        description: "Описание",
+                        rootId: "projectRootId",  // Уникальный идентификатор проекта
+                        messageId: "messageId"    // Разобраться с RawRequest в SmartApp
+                    }, {
+                        headers: {
+                            'X-Request-Id': uuid4(),
+                            'requestId': '' // Уникален в рамках намерения, нужно уточнить
+                        }
+                    });
+                    const { otrId, relativePath } = otrResponse.data;
+
+                    const uploadResponse = await axios.post('/api/v0/FileDialog/load', {
+                        otrId,
+                        fileName: file.name,
+                        messageId: "messageId", // Уникальный идентификатор сообщения
+                        file: file,             // Файл для загрузки
+                        fileType: 'binary',
+                        encrypt: false          // Если нужно шифрование, ставим true
+                    }, {
+                        headers: {
+                            'X-Request-Id': uuid4(),
+                            'requestId': '' // Уникален в рамках намерения, нужно уточнить
+                        }
+                    });
+                    if (uploadResponse.status === 200) {
+                        const updatedDocumentsInfo = [
+                            ...formState.documentsInfo,
+                            { otrId, fileName: file.name }
+                        ];
+                        // @ts-ignore
+                        // file null error
+                        setFormState({ ...formState, documentsInfo: updatedDocumentsInfo });
+                        setFileList([...fileList, file]);
+                    } else {
+                        console.error('Ошибка загрузки файла:', uploadResponse.data.message);
+                    }
+                } catch (error) {
+                    console.error('Ошибка при создании одноразовой ссылки или загрузке файла:', error);
+                }
+            }
         }
     };
 
@@ -231,6 +300,15 @@ const Foreigners: React.FC = () => {
 
             setNotificationMsg('Заявка успешно создана!')
             setShowNotification(true)
+
+            assistantRef.current?.sendData({
+                action: {
+                    action_id: 'Foreigners_done',
+                    parameters: {
+                        formState
+                    }
+                }
+            });
 
             console.log('Данные формы отправлены в Redux:', updatedFormState);
             console.log('Прикрепленные файлы:', fileList);

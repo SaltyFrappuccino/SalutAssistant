@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {updateFormField, resetForm, createRequestSuccess} from '../../redux/action/formActions';
 import HintsBlock from "../../components/HintBlock/HintBlock";
@@ -18,6 +18,7 @@ import {AppDispatch} from "../../redux/store";
 import Notification from "../Notification/Notification";
 import './SettlementOfProblemDebt.scss'
 import NorificationAlert from "../Notification/NorificationAlert";
+import {createAssistant} from "@sberdevices/assistant-client";
 
 interface EstateObject {
     objectType: string;
@@ -62,6 +63,12 @@ interface DocumentInfo {
     fileName: string;
 }
 
+const initializeAssistant = (getState: any) => {
+    return createAssistant({
+        getState,
+    });
+};
+
 interface FormState {
     taskInitiator: TaskInitiator;
     businessProcess: BusinessProcess;
@@ -72,7 +79,7 @@ interface FormState {
 
 const SettlementOfProblemDebt: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-
+    const assistantRef = useRef<ReturnType<typeof createAssistant>>();
     const [formState, setFormState] = useState({
         taskInitiator: {
             externalId: "",
@@ -224,6 +231,15 @@ const SettlementOfProblemDebt: React.FC = () => {
             setShowNotification(true)
 
             dispatch(createRequestSuccess(updatedFormState))
+
+            assistantRef.current?.sendData({
+                action: {
+                    action_id: 'SettlementOfProblemDebt_done',
+                    parameters: {
+                        formState
+                    }
+                }
+            });
 
             console.log('Данные формы отправлены в Redux:', updatedFormState);
             console.log('Прикрепленные файлы:', fileList);

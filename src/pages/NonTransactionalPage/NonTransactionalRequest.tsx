@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {updateFormField, resetForm, createRequestSuccess} from '../../redux/action/formActions';
 import HintsBlock from "../../components/HintBlock/HintBlock";
@@ -17,6 +17,7 @@ import amountPeople from "../../resources/amountPeople.svg";
 import {AppDispatch} from "../../redux/store";
 import Notification from "../Notification/Notification";
 import NorificationAlert from "../Notification/NorificationAlert";
+import {createAssistant} from "@sberdevices/assistant-client";
 
 interface EstateObject {
     objectType: string;
@@ -69,9 +70,15 @@ interface FormState {
     documentsInfo: DocumentInfo[];
 }
 
+const initializeAssistant = (getState: any) => {
+    return createAssistant({
+        getState,
+    });
+};
+
 const NonTransactionalRequest: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-
+    const assistantRef = useRef<ReturnType<typeof createAssistant>>();
     const [formState, setFormState] = useState({
         taskInitiator: {
             externalId: "",
@@ -246,6 +253,15 @@ const NonTransactionalRequest: React.FC = () => {
                 // if (response.ok) {
                     setNotificationMsg('Заявка успешно создана!');
                     setShowNotification(true);
+
+            assistantRef.current?.sendData({
+                action: {
+                    action_id: 'NonTransactionalRequest_done',
+                    parameters: {
+                        formState
+                    }
+                }
+            });
             //     }
             //     else {
             //         setNotificationMsg('Заявка успешно создана! Без отправки на бэк');

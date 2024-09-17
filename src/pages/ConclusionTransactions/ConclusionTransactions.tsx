@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {updateFormField, resetForm, createRequestSuccess} from '../../redux/action/formActions';
 import HintsBlock from "../../components/HintBlock/HintBlock";
@@ -17,6 +17,7 @@ import {AppDispatch} from "../../redux/store";
 import Notification from "../Notification/Notification";
 import '../SettlementOfProblemDebt/SettlementOfProblemDebt.scss'
 import NorificationAlert from "../Notification/NorificationAlert";
+import { createAssistant } from '@sberdevices/assistant-client';
 
 interface EstateObject {
     objectType: string;
@@ -69,9 +70,15 @@ interface FormState {
     documentsInfo: DocumentInfo[];
 }
 
+const initializeAssistant = (getState: any) => {
+    return createAssistant({
+        getState,
+    });
+};
+
 const ConclusionTransactions: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-
+    const assistantRef = useRef<ReturnType<typeof createAssistant>>();
     const [formState, setFormState] = useState({
         taskInitiator: {
             externalId: "",
@@ -123,6 +130,15 @@ const ConclusionTransactions: React.FC = () => {
     const [showErrors, setShowErrors] = useState(false);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        assistantRef.current = initializeAssistant(() => {});
+
+        assistantRef.current.on("data", ({ action }: any) => {
+            if (action.type === "") {
+            }
+        });
+    });
 
     useEffect(() => {
         const validateEmail = () => {
@@ -273,6 +289,15 @@ const ConclusionTransactions: React.FC = () => {
             setShowNotification(true)
 
             dispatch(createRequestSuccess(updatedFormState))
+
+            assistantRef.current?.sendData({
+                action: {
+                    action_id: 'ConclusionTransactions_done',
+                    parameters: {
+                        formState
+                    }
+                }
+            });
 
             console.log('Данные формы отправлены в Redux:', updatedFormState);
             console.log('Прикрепленные файлы:', fileList);

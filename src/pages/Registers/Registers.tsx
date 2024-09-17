@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { updateFormField, resetForm } from '../../redux/action/formActions';
 import HintsBlock from "../../components/HintBlock/HintBlock";
@@ -11,9 +11,17 @@ import {AppDispatch} from "../../redux/store";
 import Notification from "../Notification/Notification";
 import '../SettlementOfProblemDebt/SettlementOfProblemDebt.scss'
 import NorificationAlert from "../Notification/NorificationAlert";
+import {createAssistant} from "@sberdevices/assistant-client";
+
+const initializeAssistant = (getState: any) => {
+    return createAssistant({
+        getState,
+    });
+};
 
 const Registers: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
+    const assistantRef = useRef<ReturnType<typeof createAssistant>>();
     const [formState, setFormState] = useState({
         businessProcess: '',
         externalId: '',
@@ -129,6 +137,15 @@ const Registers: React.FC = () => {
 
             setNotificationMsg('Заявка успешно создана!')
             setShowNotification(true)
+
+            assistantRef.current?.sendData({
+                action: {
+                    action_id: 'Register_done',
+                    parameters: {
+                        formState
+                    }
+                }
+            });
 
             console.log('Данные формы отправлены в Redux:', formState);
             console.log('Прикрепленные файлы:', fileList);
