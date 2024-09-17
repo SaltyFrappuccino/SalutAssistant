@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SB Sans Text";
+  src: url("../../resources/sbsanstext-medium.woff2") format("woff2"), url("../../resources/sbsanstext-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.form-block {
+  background-color: rgb(35, 35, 35);
+  color: white;
+  font-family: "SB Sans Text", sans-serif;
+  padding-left: 20px;
+  border-radius: 10px;
+  position: relative;
+  height: 90%;
+}
+.form-block .form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.form-block .form-group input,
+.form-block .form-group textarea {
+  width: calc(100% - 56px);
+  padding: 10px;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 26px;
+}
+.form-block .form-group input::placeholder,
+.form-block .form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.form-block .form-group select {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 46px;
+}
+.form-block .form-group textarea {
+  height: 150px;
+}
+.form-block .form-group .icon {
+  position: absolute;
+  top: 38%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+}
+.form-block .form-group .icon img {
+  width: 100%;
+  height: 100%;
+}
+.form-block .form-group input[type=checkbox] {
+  margin-right: 5px;
+}
+.form-block .form-group label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 5px;
+}
+.form-block .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.form-block .form-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%;
+  font-weight: 400;
+  margin-top: 5%;
+  font-family: "SB Sans Text", sans-serif;
+}
+.form-block .form-buttons button:first-child {
+  margin-right: 10px; /* Отступ между кнопками */
+}
+.form-block .form-buttons .create-request-btn {
+  background-image: linear-gradient(45deg, rgb(47, 214, 92) 0%, rgb(32, 193, 199) 100%);
+  color: white;
+}
+.form-block .form-buttons .save-btn {
+  background-color: rgb(62, 62, 62);
+  color: white;
+}
+
+/*# sourceMappingURL=FormBlock.css.map */

@@ -1,0 +1,15 @@
+<svg width="36.000000" height="36.000000" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip25_493">
+			<rect id="edit-line" width="36.000000" height="36.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="edit-line" width="36.000000" height="36.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip25_493)">
+		<path id="矢量 52" d="M9.62 24L24.83 8.78L22.71 6.66L7.5 21.87L7.5 24L9.62 24ZM10.86 27L4.5 27L4.5 20.63L21.65 3.48C21.93 3.2 22.31 3.04 22.71 3.04C23.11 3.04 23.49 3.2 23.77 3.48L28.01 7.72C28.29 8 28.45 8.38 28.45 8.78C28.45 9.18 28.29 9.56 28.01 9.84L10.86 27L10.86 27ZM4.5 30L31.5 30L31.5 33L4.5 33L4.5 30Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+		<path id="矢量 52" d="M24.83 8.78L22.71 6.66L7.5 21.87L7.5 24L9.62 24L24.83 8.78ZM4.5 27L4.5 20.63L21.65 3.48C21.93 3.2 22.31 3.04 22.71 3.04C23.11 3.04 23.49 3.2 23.77 3.48L28.01 7.72C28.29 8 28.45 8.38 28.45 8.78C28.45 9.18 28.29 9.56 28.01 9.84L10.86 27L10.86 27L4.5 27ZM31.5 30L31.5 33L4.5 33L4.5 30L31.5 30Z" stroke="#000000" stroke-opacity="1.000000" stroke-width="1.000000"/>
+	</g>
+</svg>

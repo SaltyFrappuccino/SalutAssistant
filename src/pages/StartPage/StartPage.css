@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SB Sans Text";
+  src: url("../../resources/sbsanstext-medium.woff2") format("woff2"), url("../../resources/sbsanstext-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.start-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(-63.43deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 93.545%), radial-gradient(100% 100% at 76% 100%, rgba(0, 133, 255, 0.24), rgba(0, 71, 255, 0.03) 100%), linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%), linear-gradient(270deg, rgb(6, 22, 33), rgba(8, 8, 8, 0) 100%);
+}
+.start-page .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 226px;
+  height: 142px;
+  margin: 0 10px; /* Половина отступа с каждой стороны, чтобы в сумме было 20px */
+  background-color: #333; /* Фоновый цвет для карточки */
+  border-radius: 8px; /* Радиус углов карточки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для карточки */
+  padding: 20px;
+  cursor: pointer; /* Курсор указывает на кликабельность */
+  transition: background-color 0.3s; /* Плавный переход фона */
+}
+.start-page .card:hover {
+  background-color: #444; /* Цвет фона при наведении */
+}
+.start-page .card img {
+  width: 60px; /* Устанавливаем ширину изображения */
+  height: auto; /* Высота будет рассчитываться автоматически */
+  margin-bottom: 20px; /* Отступ снизу от изображения до текста */
+}
+.start-page .card p {
+  color: rgb(255, 255, 255);
+  font-family: "SB Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center; /* Центрируем текст по горизонтали */
+  margin: 0; /* Убираем стандартные отступы */
+}
+
+/*# sourceMappingURL=StartPage.css.map */

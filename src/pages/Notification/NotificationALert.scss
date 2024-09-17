@@ -1,0 +1,28 @@
+.button-container {
+  display: flex;
+}
+
+.btn-yes {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0 auto;
+  background-image: linear-gradient(45deg, rgb(47, 214, 92) 0%, rgb(32, 193, 199) 100%);
+  color: white;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.btn-no {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0 auto;
+  background-color: rgba(8, 8, 8, 0.28);
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'SB Sans Text';
+  src: url('../../resources/sbsanstext-medium.woff2') format('woff2'),
+  url('../../resources/sbsanstext-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.search-block {
+  color: white;
+  font-family: 'SB Sans Text', sans-serif;
+  border-radius: 10px;
+  padding: 20px;
+
+  input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 10px;
+    background-color: rgb(62,62,62);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgb(255, 255, 255);
+      font-family: 'SB Sans Text', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: -1px;
+      letter-spacing: 0px;
+      text-align: left;
+
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        flex: 1;
+
+        &:first-child {
+          width: 30px;
+
+        }
+      }
+
+      span.active { // Стили для активного текста (с номером)
+        background: linear-gradient(45.00deg, rgb(47, 214, 92),rgb(32, 193, 199));
+        border-radius: 5px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+}

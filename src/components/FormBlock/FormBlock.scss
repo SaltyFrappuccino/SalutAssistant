@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'SB Sans Text';
+  src: url('../../resources/sbsanstext-medium.woff2') format('woff2'),
+  url('../../resources/sbsanstext-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.form-block {
+  background-color: rgb(35,35,35);
+  color: white;
+  font-family: 'SB Sans Text', sans-serif;
+  padding-left: 20px;
+  border-radius: 10px;
+  position: relative;
+  height: 90%;
+
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+
+    input,
+    textarea {
+      width: calc(100% - 56px);
+      padding: 10px;
+      background-color: rgb(48,48,48);
+      border: none;
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding-left: 46px;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      background-color: rgb(48,48,48);
+      border: none;
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding-left: 46px;
+    }
+
+    textarea {
+      height: 150px;
+    }
+
+    .icon {
+      position: absolute;
+      top: 38%;
+      left: 5px;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    label {
+      color: rgba(255, 255, 255, 0.8);
+      margin-left: 5px;
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%;
+      font-weight: 400;
+      margin-top: 5%;
+      font-family: "SB Sans Text", sans-serif;
+
+      &:first-child {
+        margin-right: 10px; /* Отступ между кнопками */
+      }
+    }
+
+    .create-request-btn {
+      background-image: linear-gradient(45.00deg, rgb(47, 214, 92) 0%, rgb(32, 193, 199) 100%);
+      color: white;
+    }
+
+    .save-btn {
+      background-color: rgb(62,62,62);
+      color: white;
+    }
+  }
+}

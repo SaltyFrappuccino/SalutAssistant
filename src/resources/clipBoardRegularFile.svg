@@ -1,0 +1,9 @@
+<svg width="38.000000" height="38.000000" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="0.000008" y1="38.000008" x2="38.000008" y2="0.000011" id="paint_linear_341_4136_0" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2FD65C"/>
+            <stop offset="1.000000" stop-color="#20C1C7"/>
+        </linearGradient>
+    </defs>
+    <path id="矢量 45" d="M33.87 9.03L30.11 12.83L30.11 3.8L13.17 3.8L13.17 13.3L3.76 13.3L3.76 34.2L30.11 34.2L30.11 28.96L33.87 25.16L33.87 36.11C33.87 36.61 33.67 37.09 33.32 37.44C32.97 37.8 32.5 38 32 38L1.86 38C1.62 37.99 1.37 37.94 1.14 37.85C0.92 37.75 0.71 37.61 0.54 37.43C0.36 37.25 0.23 37.04 0.13 36.81C0.04 36.58 -0.01 36.33 0 36.08L0 11.4L11.29 0L31.98 0C33.02 0 33.87 0.86 33.87 1.88L33.87 9.03ZM35.33 12.93L38 15.62L23.36 30.4L20.69 30.39L20.7 27.71L35.33 12.93L35.33 12.93Z" fill="url(#paint_linear_341_4136_0)" fill-opacity="1.000000" fill-rule="evenodd"/>
+</svg>

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "SB Sans Text";
+  src: url("../../resources/sbsanstext-medium.woff2") format("woff2"), url("../../resources/sbsanstext-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.request-card {
+  border-radius: 16px;
+  background: rgb(48, 48, 48);
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+.request-card.selected {
+  background: rgb(82, 82, 82);
+}
+.request-card .request-title {
+  color: rgb(255, 255, 255);
+  font-family: "SB Sans Text";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: -1px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.request-card .request-status {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-family: "SB Sans Text";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: -1px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+p {
+  background-clip: text !important;
+}
+
+/*# sourceMappingURL=RequestsCard.css.map */

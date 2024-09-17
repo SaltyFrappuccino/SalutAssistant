@@ -1,0 +1,13 @@
+<svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <clipPath id="clip341_4077">
+            <rect id="4115230-cancel-close-cross-delete_114048" width="32.000000" height="32.000000" fill="white" fill-opacity="0"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#clip341_4077)">
+        <path id="line" d="M6.32 7.7L6.29 7.7C5.89 7.31 5.89 6.68 6.29 6.29C6.68 5.89 7.31 5.89 7.7 6.29L7.7 6.32L6.32 7.7ZM25.67 24.29L25.7 24.29C26.1 24.68 26.1 25.31 25.7 25.7C25.31 26.1 24.68 26.1 24.29 25.7L24.29 25.67L25.67 24.29Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+        <path id="line" d="M7 7L25 25" stroke="#A5A5A5" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+        <path id="line" d="M7.7 25.67L7.7 25.7C7.31 26.1 6.68 26.1 6.29 25.7C5.89 25.31 5.89 24.68 6.29 24.29L6.32 24.29L7.7 25.67ZM24.29 6.32L24.29 6.29C24.68 5.89 25.31 5.89 25.7 6.29C26.1 6.68 26.1 7.31 25.7 7.7L25.67 7.7L24.29 6.32Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+        <path id="line" d="M7 25L25 7" stroke="#A5A5A5" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+</svg>

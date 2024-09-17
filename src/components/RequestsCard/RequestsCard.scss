@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'SB Sans Text';
+  src: url('../../resources/sbsanstext-medium.woff2') format('woff2'),
+  url('../../resources/sbsanstext-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h4 {
+  font-weight: 500;
+  margin: 0;
+  padding: 0
+}
+
+.request-card {
+  width: 1180px;
+  height: 45px;
+  border-radius: 16px;
+  background: rgb(48,48,48);
+  padding: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: border 0.3s;
+
+  &.selected {
+    background: rgb(82,82,82);
+  }
+
+  .request-title {
+    margin-left: 15px;
+    width: 450px;
+    color: rgb(255, 255, 255);
+    font-family: 'SB Sans Text';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: -1px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .request-status {
+    margin-right: 15px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-family: 'SB Sans Text';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: -1px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+}
+
+.form-button-requests {
+    margin-bottom: 20px;
+    //position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: calc(100% - 63%);
+}
+
+.request-card-table-body {
+  display: flex;
+
+}
+
+.input-block-search {
+  position: relative;
+}
+
+.clear-search {
+  position: relative;
+  right: 35px;
+  transform: translateY(20%);
+  background-color: transparent;
+  width: 0px;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  background-clip: text !important;
+}
