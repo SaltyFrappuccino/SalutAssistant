@@ -39,7 +39,7 @@ state: ФормаОтправлена
                     type: &quot;smart_app_data&quot;,
                     action: {
                         type: &quot;FORM_DONE&quot;,
-                        payload: &quot;Сценарий получил данные формы!&quot;
+                        payload: JSON.stringify($request.data.eventData);
                     }
                 }
             }]
