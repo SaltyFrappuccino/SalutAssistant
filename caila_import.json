@@ -1,0 +1,28 @@
+{
+  "project" : {
+    "id" : "atypical_loans_code-3557342-Hau",
+    "name" : "atypical_loans_code-3557342-Hau",
+    "folder" : "/jaicp"
+  },
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "tokenizerEngine" : "default"
+    },
+    "businessShared" : false,
+    "business" : false
+  },
+  "intents" : [ {
+    "id" : 791925,
+    "path" : "/Новый интент",
+    "enabled" : true,
+    "businessShared" : false,
+    "business" : false,
+    "phrases" : [ ]
+  } ],
+  "entities" : [ ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ]
+}
