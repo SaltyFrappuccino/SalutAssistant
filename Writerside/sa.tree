@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="sa"
+                 name="Salut Assistant"
+                 start-page="starter.md">
+
+    <toc-element topic="starter.md"/>
+    <toc-element topic="architecture.md"/>
+    <toc-element topic="Инициализация-ассистента-на-фронте.md"/>
+    <toc-element topic="Обмен-данными-между-Сценарием-и-Фронтом.md"/>
+    <toc-element topic="Обмен-данными-между-Фронтом-и-Сценарием.md"/>
+    <toc-element topic="Полезные-Ссылки.md"/>
+</instance-profile>
