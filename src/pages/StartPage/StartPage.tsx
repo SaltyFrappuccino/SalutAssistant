@@ -33,6 +33,7 @@ const StartPage: React.FC = () => {
         assistantRef.current = initializeAssistant(() => {});
 
         assistantRef.current.on("data", ({ action }: any) => {
+            setText("Привет")
             if (action.type === "OPEN_FORM") {
                 setText(action.payload)
                 handleCardClick(action.payload);
@@ -40,7 +41,7 @@ const StartPage: React.FC = () => {
                 setText(action.type);
             }
         });
-    });
+    },[]);
 
 
     const handleCardClick = (path: string) => {
