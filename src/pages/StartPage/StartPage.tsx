@@ -33,7 +33,10 @@ const StartPage: React.FC = () => {
 
         assistantRef.current.on("data", ({ action }: any) => {
             if (action.type === "OPEN_FORM") {
-                alert(action.payload)
+                const h3Element = document.getElementById('zayavki') as HTMLHeadingElement;
+                if (h3Element) {
+                    h3Element.textContent = action.payload;
+                }
                 handleCardClick(action.payload);
             }
         });
@@ -48,7 +51,7 @@ const StartPage: React.FC = () => {
         <div className="start-page">
             <div className="main">
                 <div className='header-content'>
-                    <h3 className='header-h3' style={{ color : '#fff'}}>Заявки</h3>
+                    <h3 id="zayavki" className='header-h3' style={{ color : '#fff'}}>Заявки</h3>
                     <button style={{background: "none", border: 'none', cursor: 'pointer', width: '32px', height: '32px'}}>
                         <img width={32} height={32} src={buttonClose} alt="Clip Board" />
                     </button>
