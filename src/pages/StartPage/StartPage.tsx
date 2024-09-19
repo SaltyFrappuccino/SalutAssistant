@@ -33,6 +33,7 @@ const StartPage: React.FC = () => {
 
         assistantRef.current.on("data", ({ action }: any) => {
             if (action.type === "OPEN_FORM") {
+                alert(action.payload)
                 handleCardClick(action.payload);
             }
         });
