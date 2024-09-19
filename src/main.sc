@@ -1,4 +1,5 @@
-require: create/createRequest.js
+require: actions/createFormActions.sc
+require: actions/openPageActions.sc
 
 patterns:
     $AnyText = $nonEmptyGarbage
