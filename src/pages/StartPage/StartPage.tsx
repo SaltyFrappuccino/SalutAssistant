@@ -34,10 +34,11 @@ const StartPage: React.FC = () => {
         assistantRef.current.on("data", ({ action }: any) => {
             if (action.type === "OPEN_FORM") {
                 const h3Element = document.getElementById('zayavki') as HTMLHeadingElement;
-                if (h3Element) {
-                    h3Element.textContent = action.payload;
-                }
+                h3Element.textContent = action.payload;
                 handleCardClick(action.payload);
+            } else {
+                const h3Element = document.getElementById('zayavki') as HTMLHeadingElement;
+                h3Element.textContent = action.type;
             }
         });
     });
