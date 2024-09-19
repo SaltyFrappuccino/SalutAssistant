@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './StartPage.scss';
 import clipBoard from "../../resources/clipboard-line.svg"
@@ -23,6 +23,7 @@ const initializeAssistant = (getState: any) => {
 
 const StartPage: React.FC = () => {
     const navigate = useNavigate();
+    const [text, setText] = useState("Заявко")
 
     const assistantStateRef = useRef<AssistantAppState>();
     const assistantRef = useRef<ReturnType<typeof createAssistant>>();
@@ -33,12 +34,10 @@ const StartPage: React.FC = () => {
 
         assistantRef.current.on("data", ({ action }: any) => {
             if (action.type === "OPEN_FORM") {
-                const h3Element = document.getElementById('zayavki') as HTMLHeadingElement;
-                h3Element.textContent = action.payload;
+                setText(action.payload)
                 handleCardClick(action.payload);
             } else {
-                const h3Element = document.getElementById('zayavki') as HTMLHeadingElement;
-                h3Element.textContent = action.type;
+                setText(action.type);
             }
         });
     });
@@ -52,7 +51,7 @@ const StartPage: React.FC = () => {
         <div className="start-page">
             <div className="main">
                 <div className='header-content'>
-                    <h3 id="zayavki" className='header-h3' style={{ color : '#fff'}}>Заявки</h3>
+                    <h3 id="zayavki" className='header-h3' style={{ color : '#fff'}}>text</h3>
                     <button style={{background: "none", border: 'none', cursor: 'pointer', width: '32px', height: '32px'}}>
                         <img width={32} height={32} src={buttonClose} alt="Clip Board" />
                     </button>
