@@ -51,7 +51,7 @@ const StartPage: React.FC = () => {
         <div className="start-page">
             <div className="main">
                 <div className='header-content'>
-                    <h3 id="zayavki" className='header-h3' style={{ color : '#fff'}}>text</h3>
+                    <h3 id="zayavki" className='header-h3' style={{ color : '#fff'}}>{text}</h3>
                     <button style={{background: "none", border: 'none', cursor: 'pointer', width: '32px', height: '32px'}}>
                         <img width={32} height={32} src={buttonClose} alt="Clip Board" />
                     </button>
