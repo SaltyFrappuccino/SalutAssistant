@@ -1,0 +1,56 @@
+.request-list-main {
+  height: 460px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+//.list-block {
+//  padding: 25px;
+//  position: relative;
+//  height: 90%;
+//
+//  .requests-list {
+//    display: flex;
+//    flex-direction: column;
+//    gap: 10px;
+//  }
+//
+//  .buttons {
+//    position: absolute;
+//    bottom: 0;
+//    left: 0;
+//    width: 100%;
+//    display: flex;
+//    margin-right: 5px;
+//    justify-content: space-between;
+//    margin-top: 20px;
+//
+//    button {
+//      padding: 10px 20px;
+//      border: none;
+//      border-radius: 5px;
+//      cursor: pointer;
+//      width: 50%;
+//      font-weight: 400;
+//      font-family: "SB Sans Text", sans-serif;
+//
+//      &:first-child {
+//        margin-right: 10px;
+//      }
+//
+//      &.save-btn {
+//        background: rgba(255, 255, 255, 0.12);
+//        opacity: 0.4;
+//        color: white;
+//        margin-left: 5px;
+//      }
+//
+//      &.update-btn {
+//        background: linear-gradient(45.00deg, rgb(47, 214, 92) 0%,rgb(32, 193, 199) 100%);
+//        opacity: 0.4;
+//        color: white;
+//        margin-right: 5px;
+//      }
+//    }
+//  }
+//}

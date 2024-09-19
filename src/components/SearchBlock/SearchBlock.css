@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "SB Sans Text";
+  src: url("../../resources/sbsanstext-medium.woff2") format("woff2"), url("../../resources/sbsanstext-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.search-block {
+  color: white;
+  font-family: "SB Sans Text", sans-serif;
+  border-radius: 10px;
+  padding: 20px;
+}
+.search-block input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+  background-color: rgb(62, 62, 62);
+}
+.search-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.search-block ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  font-family: "SB Sans Text", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: -1px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.search-block ul li:last-child {
+  border-bottom: none;
+}
+.search-block ul li span {
+  flex: 1;
+}
+.search-block ul li span:first-child {
+  width: 30px;
+}
+.search-block ul li span.active {
+  background: linear-gradient(45deg, rgb(47, 214, 92), rgb(32, 193, 199));
+  border-radius: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/*# sourceMappingURL=SearchBlock.css.map */

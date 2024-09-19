@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'SB Sans Text';
+  src: url('../../resources/sbsanstext-medium.woff2') format('woff2'),
+  url('../../resources/sbsanstext-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hints-block {
+  color: white;
+  font-family: 'SB Sans Text', sans-serif;
+  border-radius: 10px;
+  padding: 10px;
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    //gap: 5px;
+    width: 100px;
+    flex-grow: 1;
+  }
+
+  .thumbnail-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thumbnail {
+    //width: 150px;
+    //height: 150px;
+    border-radius: 5px;
+  }
+
+  .thumbnail-icon {
+    width: 45px;
+    height: 40px;
+    padding-top: 10px;
+  }
+
+  .placeholder {
+    margin-top: 100px;
+    margin-right: 22px;
+  }
+}
+
+.remove-file {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  cursor: pointer;
+}
+
+.form-container {
+  width: 300px;
+  margin-top: 102px;
+}
+
+.file-upload-button {
+  display: flex;
+  width: 260px;
+  height: 30px;
+  //display: inline-block;
+  border: none;
+  border-radius: 16px;
+  background-image: linear-gradient(to bottom, rgb(47, 214, 92), rgb(32, 193, 199));
+  cursor: pointer;
+  //margin-bottom: 15px;
+
+  font-size: 14px;
+  padding-top: 10px;
+  margin-right: 8px;
+}
+
+.file-upload-button img {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.file-upload-button:hover {
+  background-color: #f0f0f0;
+}
+
+.upload-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.file-name {
+  font-size: 12px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.file-upload-button {
+  position: relative;
+  padding-left: 20px;
+}
+
+.svg-container {
+  position: absolute;
+  padding: 0px 0px 0px 220px;
+}
+
+.svg-container svg {
+  width: 20px;
+  height: 20px;
+}
+
